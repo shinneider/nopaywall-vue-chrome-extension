@@ -1,0 +1,9 @@
+{
+  "extName": {"message": "No Paywall"},
+
+  "thisSite": {"message": "this site"},
+  "thisPage": {"message": "this page"},
+  "disablePaywall": {"message": "disable paywall"},
+
+  "messageFooter": {"message": "Help us, send a site with paywall for us, and make us happy"}
+}
