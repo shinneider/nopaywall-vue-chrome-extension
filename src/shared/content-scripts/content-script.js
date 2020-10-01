@@ -1,1 +1,6 @@
-console.log('Hello from the content-script')
+import store from "../store/store";
+
+store.commit("domainActions/addUrl", {
+  domain: location.hostname,
+  path: location.pathname,
+});

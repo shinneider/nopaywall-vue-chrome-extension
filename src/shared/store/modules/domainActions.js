@@ -10,14 +10,12 @@ export default {
     refreshNeeded: false,
   },
   mutations: {
-    addUrl(state, { url }) {
-      const parser = document.createElement("a");
-      parser.href = url;
-
-      (state.site.domain = parser.hostname),
-        (state.site.path = parser.pathname);
+    addUrl(state, { domain, path }) {
+      state.site.domain = domain;
+      state.site.path = path;
     },
     blockDomain(state, domain) {
+      console.log(8888, domain);
       domain
         ? state.blockedDomains.push(state.site.domain)
         : (state.blockedDomains = state.blockedDomains.filter(
@@ -51,9 +49,10 @@ export default {
   },
   actions: {
     async mountSiteDomain({ commit }) {
-      await chrome.tabs.getSelected((tab) =>
-        commit("addUrl", { url: tab.url })
-      );
+      await chrome.tabs.getSelected((tab) => {
+        const url = new URL(tab.url);
+        commit("addUrl", { domain: url.hostname, path: url.pathname });
+      });
     },
     async refreshPage() {
       chrome.tabs.executeScript({

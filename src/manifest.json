@@ -26,5 +26,11 @@
   "options_ui": {
     "page": "options.html",
     "browser_style": true
-  }
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["js/content-script.js"]
+    }
+  ]
 }

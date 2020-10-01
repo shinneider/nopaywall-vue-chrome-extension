@@ -49,7 +49,7 @@ export default {
   methods: {
     ...mapActions("domainActions", ["refreshPage"]),
     ...mapMutations("domainActions", ["blockDomain", "blockPath"]),
-    refresh: function() {
+    refresh: function () {
       this.refreshPage();
       window.close();
     },
@@ -65,18 +65,18 @@ export default {
     thisSite: () => browser.i18n.getMessage("thisSite"),
     thisPage: () => browser.i18n.getMessage("thisPage"),
     domainStatus: {
-      get: function() {
+      get: function () {
         return !this.blockedDomain;
       },
-      set: function(val) {
+      set: function (val) {
         this.blockDomain(!val);
       },
     },
     pathStatus: {
-      get: function() {
+      get: function () {
         return !this.blockedPath;
       },
-      set: function(val) {
+      set: function (val) {
         this.blockPath(!val);
       },
     },
