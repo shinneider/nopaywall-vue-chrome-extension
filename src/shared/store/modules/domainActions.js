@@ -15,7 +15,6 @@ export default {
       state.site.path = path;
     },
     blockDomain(state, domain) {
-      console.log(8888, domain);
       domain
         ? state.blockedDomains.push(state.site.domain)
         : (state.blockedDomains = state.blockedDomains.filter(
